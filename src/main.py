@@ -1,6 +1,6 @@
 #
 #  Import LIBRARIES
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI
 
 from src.routes.hello_world import router as hello_world
 
@@ -25,16 +25,16 @@ def create_app() -> FastAPI:
     app.include_router(router=file_router)
     app.include_router(router=hello_world)
 
-    # Middleware
-    @app.middleware(middleware_type="http")
-    async def my_middleware(request: Request, call_next):  # -> Any | Response:
-        """Some middlware to check the header."""
-        if request.headers.get("User") == "Emagnu":
-            print(f"Inside middleware - {request.headers.get('User')}")
-            # print(f"Inside middleware - {request.headers}")
-            response = await call_next(request)
-            return response
-        return Response(content="Not allowed!\n", status_code=403)
+    # # Middleware
+    # @app.middleware(middleware_type="http")
+    # async def my_middleware(request: Request, call_next):  # -> Any | Response:
+    #     """Some middlware to check the header."""
+    #     if request.headers.get("User") == "Emagnu":
+    #         print(f"Inside middleware - {request.headers.get('User')}")
+    #         # print(f"Inside middleware - {request.headers}")
+    #         response = await call_next(request)
+    #         return response
+    #     return Response(content="Not allowed!\n", status_code=403)
 
     return app
 
