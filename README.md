@@ -29,4 +29,11 @@ curl -X 'POST' 'http://127.0.0.1:5050/submit-score' -H 'accept: application/json
 ### Sending a Post Request
 curl -X POST http://127.0.0.1:5050/post-file -F "file=@myfile.txt"
 - [FastAPI Tutorial EP4 - Intercept Requests With Middleware](https://www.youtube.com/watch?v=P4j4mxvjtTo&list=PLRJ25SyJ5NMYsZJMcU9RZ2WZ2TD2yHAzS&index=2)
+### Running the app
+uvicorn main: app -port 5050
+### Post request!
+curl -H "User: Emagnu" http:///127.0.0.1:5050/hello-world
+## App → Middleware → Endpoint
+### If the header contains the correct user, let them through!
+
 - [FastAPI Tutorial E5 - Query Parameters](https://www.youtube.com/watch?v=CiUu-PNxtOo&list=PLRJ25SyJ5NMYsZJMcU9RZ2WZ2TD2yHAzS&index=1)
