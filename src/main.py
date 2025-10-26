@@ -10,7 +10,8 @@ from fastapi import FastAPI
 app: FastAPI = FastAPI(title="My fast API!", description="this is my cool API!")
 
 
-@app.get(path="/heUlo-world")
+#   curl http://127.0.0.1:5050/hello-world
+@app.get(path="/hello-world")
 def hello() -> dict[str, str]:
     return {"Message": "Hello world!"}
 
@@ -18,6 +19,6 @@ def hello() -> dict[str, str]:
 #
 #  Import LIBRARIES
 #  Import FILES
-#
-# if __name__ == "__main__":
-#     main()
+# #
+# # if __name__ == "__main__":
+# #     uvicorn main:app --port 5050 --reload
